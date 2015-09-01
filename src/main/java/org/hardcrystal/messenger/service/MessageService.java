@@ -8,9 +8,8 @@ import org.hardcrystal.messenger.database.DatabaseClass;
 import org.hardcrystal.messenger.model.Message;
 
 public class MessageService {
-	
-	
-	
+
+	private Map<Long, Message> messages = DatabaseClass.getMessages();
 	public MessageService() {
 		messages.put(1L, new Message(1, "Hello there", "kaidzen"));
 		messages.put(2L, new Message(2, "Hello here", "kaidzen"));
@@ -18,8 +17,6 @@ public class MessageService {
 		messages.put(4L, new Message(4, "Hello bla-bla", "kaidzen"));
 	}
 
-	public Map<Long, Message> messages = DatabaseClass.getMessages();
-	
 	public List<Message> getAllMessages(){
 		return new ArrayList<Message>(messages.values());
 	}
