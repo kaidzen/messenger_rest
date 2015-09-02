@@ -1,8 +1,10 @@
 package org.hardcrystal.messenger.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+import java.util.spi.CalendarDataProvider;
 
 import org.hardcrystal.messenger.database.DatabaseClass;
 import org.hardcrystal.messenger.model.Message;
@@ -18,7 +20,18 @@ public class MessageService {
 	}
 
 	public List<Message> getAllMessages(){
+
 		return new ArrayList<Message>(messages.values());
+	}
+
+	public List<Message> getAllMessagesForYear(int year){
+		List<Message> messagesForYear = new ArrayList<>();
+		Calendar cal = Calendar.getInstance();
+		for (Message message: messages.values()){
+			cal.setTime(message.getCreated());
+			if(cal.get(Calendar.YEAR) == year) messagesForYear.add(message);
+		}
+		return messagesForYear;
 	}
 
 	public Message getMessage(long id) {
