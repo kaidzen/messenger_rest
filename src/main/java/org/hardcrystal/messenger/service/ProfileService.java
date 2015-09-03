@@ -5,7 +5,6 @@ import org.hardcrystal.messenger.database.DatabaseClass;
 import org.hardcrystal.messenger.model.Profile;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
