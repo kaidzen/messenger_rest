@@ -11,7 +11,8 @@ public class InjectDemoResourse {
     @GET
     @Path("annotations")
     public String getParamsUsingAnnotations(@MatrixParam("param") String matrixParam,
-                                            @HeaderParam("authSessionID") String header){
-        return "Matrix param: " + matrixParam + " Header param: " + header;
+                                            @HeaderParam("authSessionID") String header,
+                                            @CookieParam("JSESSIONID") String cookie){
+        return "Matrix param: " + matrixParam + " Header param: " + header + " Cookie param: " + cookie;
     }
 }
