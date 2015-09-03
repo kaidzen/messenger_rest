@@ -23,21 +23,33 @@ public class CommentResourse {
 
     @POST
     public Comment addComment(@PathParam("messageId") long messageId, Comment comment){
-        return CommentService.addComment(messageId, comment);
+        return commentService.addComment(messageId, comment);
     }
 
     @PUT
-    @Path("/{commetnId}")
+    @Path("/{commentId}")
     public Comment updateComment(@PathParam("messageId") long messageId,
                                  @PathParam("commentId") long id,
                                  Comment comment){
         comment.setId(id);
-        return CommentService.updateComment(messageId, comment);
+        return commentService.updateComment(messageId, comment);
     }
 
     @GET
     @Path("/{commentId}")
         public String getCommentById(@PathParam("messageId")long messageId, @PathParam("commentId") long commentId){
         return "Method return comment ID: " + commentId + " for message " + messageId;
+    }
+
+    @DELETE
+    @Path("/{commentId}")
+    public void deleteComment(@PathParam("messageId") long messageId, @PathParam("commentId") long commentID){
+        commentService.removeComment(messageId, commentID);
+    }
+
+    @GET
+    @Path("/{commentId}")
+    public Comment getComment(@PathParam("messageId") long messageId, @PathParam("commentId") long commentId){
+        return commentService.getComment(messageId, commentId);
     }
 }

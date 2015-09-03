@@ -3,7 +3,6 @@ package org.hardcrystal.messenger.service;
 import org.hardcrystal.messenger.database.DatabaseClass;
 import org.hardcrystal.messenger.model.Comment;
 import org.hardcrystal.messenger.model.Message;
-import org.hardcrystal.messenger.model.Profile;
 
 import java.util.ArrayList;
 import java.util.List;
