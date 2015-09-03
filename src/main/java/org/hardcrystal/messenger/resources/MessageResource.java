@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.hardcrystal.messenger.model.Message;
 import org.hardcrystal.messenger.resources.beans.MessageFilterBean;
@@ -28,8 +29,11 @@ public class MessageResource {
 	}
 
 	@POST
-	public Message addMessage(Message message){
-		return messageService.addMessage(message);
+	public Response addMessage(Message message){
+		Message newMessage = messageService.addMessage(message);
+		return Response.status(Response.Status.CREATED)
+				.entity(newMessage)
+				.build();
 	}
 
 	@PUT

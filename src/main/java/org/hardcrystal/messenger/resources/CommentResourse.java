@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.Map;
 
-@Path("/")
+//@Path("/")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 
